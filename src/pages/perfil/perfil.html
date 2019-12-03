@@ -1,0 +1,92 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="customColor">
+      <button ion-button color="dark" menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title color="primary">Cuenta</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	
+	<ion-content *ngIf="!noProfile">
+		<ion-card>
+	   	 <img src="https://pngimage.net/wp-content/uploads/2018/06/green-circle-icon-png-6.png" style="width: 30%; height: auto; margin-left: 25%; margin: 0 auto" >
+	    </ion-card>
+
+
+		<ion-row justify-content-center align-items-center  text-center>
+			<h2>{{ name }}</h2>
+		</ion-row>
+
+		
+		<ion-row justify-content-center align-items-center  text-center>
+			<h4>Todavía no ha contribuido a ningún proyecto</h4>
+			<h5 style="color: gray; font-size:0.9em">Aún no has patrocinado ningún proyecto.<br/> ¡Es hora de cambiar esto!</h5>
+		</ion-row>
+		
+		<button ion-button  block color="light" outline style="padding:20px; color:black !important" (click)="openFirstPage()">
+			Explora proyectos nuevos
+		</button>
+	</ion-content>
+
+	<ion-content *ngIf="noProfile">
+		<ion-card>
+	   	 <img src="https://pngimage.net/wp-content/uploads/2018/06/green-circle-icon-png-6.png" style="width: 30%; height: auto; margin-left: 25%; margin: 0 auto" >
+	    </ion-card>
+
+
+		<ion-row justify-content-center align-items-center  text-center>
+			<h2>{{ name }}</h2>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-row justify-content-center align-items-center  text-center>
+					<ion-icon name="heart" size="large" [style.color]="'#EF3B51'"></ion-icon>
+					<ion-icon name="heart" size="large" [style.color]="'#EF3B51'"></ion-icon>
+					<ion-icon name="heart" size="large" [style.color]="'#EF3B51'"></ion-icon>
+					<ion-icon name="heart-half" size="large" [style.color]="'#EF3B51'"></ion-icon>
+					<ion-icon name="heart-outline" size="large" [style.color]="'#EF3B51'"></ion-icon>
+				</ion-row>
+				<ion-row justify-content-center align-items-center  text-center>
+					<h5 style="font-size:0.9em">Nivel Embajador</h5>
+				</ion-row>
+			</ion-col>
+		</ion-row>
+
+				
+
+		<ion-row justify-content-center align-items-center  text-center style="color: gray">
+			Proyectos patrocinados: <span class="bold">8</span>
+		</ion-row>
+
+
+		<ion-row>
+		    <ion-col col-6 *ngFor="let post of [1,1,1,1,1]">
+		       	
+		       	<ion-card no-padding class="mycard">
+
+		            <img src="./../assets/imgs/advance-card-bttf.png" style="width: 100vw !important; " >
+		            
+		            <ion-card-content no-padding>
+		                <h2 style="font-weight: bold">Titulo</h2>
+		                <ion-row>
+		                  <ion-col col-md-12>
+		                    <progress max="100" value="70" style="width: 100%; height: 15%"></progress>
+		                  </ion-col>
+		              	</ion-row>
+		            </ion-card-content>
+
+		     	</ion-card>
+		    </ion-col> 
+		 </ion-row>
+	</ion-content>
+
+</ion-content>

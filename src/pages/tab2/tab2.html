@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-navbar color="customColor">
+    <button ion-button color="dark" menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Donar</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-divider color="twitter">Donación</ion-item-divider>
+        <ion-item>
+
+                <ion-label>Proyecto</ion-label>
+                <ionic-selectable
+                  item-content
+                  [(ngModel)]="port"
+                  [items]="ports"
+                  itemValueField="id"
+                  itemTextField="name"
+                  [canSearch]="true"
+                  [hasInfiniteScroll]="true"
+                  (onChange)="portChange($event)"
+                  (onInfiniteScroll)="getMorePorts($event)">
+                  <ng-template ionicSelectableMessageTemplate floating>
+                    Proyecto
+                  </ng-template>
+                </ionic-selectable>
+
+          <!-- <select-searchable
+              name="something"
+              [(ngModel)]="port"
+              [items]="ports"
+              itemValueField="id"
+              itemTextField="name"
+              [canReset]="true"
+              [canSearch]="true"
+              (onChange)="portChange($event)"
+              (onInfiniteScroll)="getMorePorts($event)">
+              <ng-template selectSearchableLabelTemplate floating>
+                  Proyecto
+              </ng-template>
+          </select-searchable> -->
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Tarjeta de crédito</ion-label>
+          <ion-input type="number" [(ngModel)]="newSubscription.number"> float-right</ion-input>
+        </ion-item>
+        <ion-item>
+         <ion-label floating >Fecha de vencimiento</ion-label>
+         <ion-datetime displayFormat="MM/YY" [(ngModel)]="newSubscription.exp" pickerFormat="MM YYYY" min="{{ current_year }}" max="{{ current_year + 100}}"></ion-datetime>
+       </ion-item>
+        <ion-item>
+         <ion-label floating>CVC</ion-label>
+         <ion-input type="tel" [(ngModel)]="newSubscription.cvc" maxlength="4" float-right></ion-input>
+        </ion-item>
+        <ion-item>
+         <ion-label>Una sola donación</ion-label>
+         <ion-toggle [(ngModel)]="this.newSubscription.singlePayment"></ion-toggle>
+       </ion-item>
+        <ion-item *ngIf="this.newSubscription.singlePayment">
+         <ion-label>Cantidad</ion-label>
+         <ion-input type="number" [(ngModel)]="newSubscription.amount" float-right></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!this.newSubscription.singlePayment">
+         <ion-label floating>Subscripción</ion-label>
+         <ion-select [(ngModel)]="newSubscription.subscription">
+           <ion-option value="{{ plan.plan_id }}" *ngFor="let plan of planes">{{ plan.name }} ({{ plan.amount }})</ion-option>
+         </ion-select>
+       </ion-item>
+      </ion-list>
+    <!-- <form name="paymentForm">
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email"></ion-input>
+          </ion-item>
+      <ion-item>
+        <ion-label floating>Amount</ion-label>
+        <ion-input type="text" name="amount" [(ngModel)]="payment.amount"></ion-input>
+      </ion-item>
+      <ion-item text-wrap>
+      <select-searchable
+          name="something"
+          [(ngModel)]="port"
+          [items]="ports"
+          itemValueField="id"
+          itemTextField="name"
+          [canSearch]="true"
+          (onChange)="portChange($event)">
+          <ng-template selectSearchableLabelTemplate>
+              Port
+          </ng-template>
+      </select-searchable>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Currency</ion-label>
+        <ion-select [(ngModel)]="payment.currency" name="currency">
+          <ion-option value="{{currency}}" *ngFor="let currency of currencies">{{currency}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text" name="description" [(ngModel)]="payment.shortDescription"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Intent</ion-label>
+        <ion-input type="text" name="intent" [(ngModel)]="payment.intent"></ion-input>
+      </ion-item>
+      <p>
+        <button ion-button block color="fundasierra" (click)="makePayment()">MAKE PAYMENT</button>
+      </p>
+  </form> -->
+</ion-content>
+
+<!-- <ion-footer>
+     <button ion-button block color="twitter" (click)="placeDonation()">Donar</button>
+ </ion-footer> -->
+
+<ion-footer>
+  <button ion-button block color="verde" (click)="placeDonation()">Donar</button>
+</ion-footer>
+

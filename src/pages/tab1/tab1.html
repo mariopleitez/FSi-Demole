@@ -1,0 +1,116 @@
+<!-- <ion-header no-border>
+    <ion-navbar color="secondary">
+      <ion-buttons left>
+          <button ion-button icon-only color="light"><ion-icon name="arrow-back"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header> -->
+
+<ion-header>
+    <ion-navbar color="customColor">
+      <button ion-button color="dark" menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title color="primary">Proyectos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<!-- <ion-content  padding> -->
+<ion-content class="cards-bg social-cards">
+
+    <autoplay-content>
+
+
+    <ion-refresher (ionRefresh)="getPosts($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- <div class="main-content"> -->
+      <ion-searchbar (ionInput)="getItems($event)" (ionClear)="onClear($event)"></ion-searchbar>
+
+      <!-- <ion-card> -->
+       <img src="assets/imgs/LogoTipologia.png" class="logo" style=" margin-bottom: 20px">
+      <!-- </ion-card> -->
+
+      <ion-card *ngFor="let post of posts">
+
+            <div *ngIf="post.video;else gallery_slider">
+               <video autoplay="true" muted="muted">
+                  <source src="http://34.202.156.31/videos/video01.mp4">
+               </video>
+            </div>
+
+            <ng-template #gallery_slider>
+                 <img src="http://34.202.156.31/{{ post.images[0].thumbnail.replace('public', 'storage') }}" style="width: 100vw !important; " (click)="openPost(post)">
+                <!-- <ion-slides autoplay="3000" pager>
+                  <ion-slide *ngFor="let imgs of post.images">
+                      <img src="http://34.202.156.31/{{ imgs.thumbnail.replace('public', 'storage') }}" style="width: 100vw !important; ">
+                  </ion-slide>
+                </ion-slides> -->
+            </ng-template>
+            
+            <ion-card-content (click)="openPost(post)">
+                <h2 style="font-weight: bold">{{ post.extract_name }}</h2>
+                <p style="color: gray" float-left>{{ post.date_format }}</p>
+                <br/><br/>
+                <div style="text-align: justify;">
+                {{ post.extract_comment }}
+                </div>
+            </ion-card-content>
+
+            <ion-row>
+               <ion-col col-md-3>
+                  <button ion-button icon-left clear small  float-left (click)="toggleLiked(post)">
+                    <ion-icon name = "{{ post.icon }}" color="danger" ></ion-icon>
+                    <div>{{ post.likes_count }} Likes</div>
+                  </button>
+              </ion-col>
+            </ion-row>
+
+            <ion-card-content>
+              <hr>
+              <ion-row>
+                  <ion-col col-md-12>
+                    <progress max="100" value="{{ post.porcentaje }}" style="width: 100%; height: 15%"></progress>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col col-md-3>
+                    <div text-center style="border-right: 1px solid #ccc; color: gray; font-size: 0.8em">
+                      {{ post.porcentaje }} % <br/>Financiado
+                    </div>
+                  </ion-col>
+
+                  <ion-col col-md-3>
+                    <div text-center style="border-right: 1px solid #ccc; color: gray; font-size: 0.8em">{{ post.total_financiadores}} <br/>Patrocinadores</div>
+                  </ion-col>
+
+                  <ion-col col-md-3>
+                    <div text-center style="color: gray; font-size: 0.8em">
+                      {{ post.time_remaining }} <br/>Restantes
+                    </div>
+                  </ion-col>
+
+              </ion-row>
+            </ion-card-content>
+            <br>
+            <br>
+      </ion-card>
+
+
+    <!-- </div> -->
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" >
+      <ion-infinite-scroll-content *ngIf="page < totalPage"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </autoplay-content>
+
+</ion-content>
+
+<style>
+    .social-cards ion-col {
+      padding: 0;
+    }
+</style>

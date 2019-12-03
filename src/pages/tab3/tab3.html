@@ -1,0 +1,142 @@
+<!-- Segment in a header -->
+<ion-header>
+    <ion-navbar color="customColor">
+      <button ion-button color="dark" menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Cuenta</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+      <!-- Segment in content -->
+      <ion-segment [(ngModel)]="selectedSegment" color="primary" (ionChange)="onSegmentChanged($event)">
+           <ion-segment-button value="donaciones">
+              Donaciones
+            </ion-segment-button>
+            <ion-segment-button value="subscripciones">
+              Subscripciones
+            </ion-segment-button>
+            <ion-segment-button value="unread">
+              Unread
+            </ion-segment-button>
+      </ion-segment>
+
+      <ion-content padding>
+          <ion-item *ngIf="showDonaciones">
+              <ion-card>
+                  <img src="assets/imgs/icon-male.png" class="logo">
+                  <!-- Mariano Paz -->
+               </ion-card>
+               <ion-list>
+                  <ion-item>
+                    <ion-thumbnail item-start>
+                      <img src="assets/imgs/user.png">
+                    </ion-thumbnail>
+                    <h2>Recolección de basura</h2>
+                    <p>Nahuizalco • 1988</p>
+                    <button ion-button clear item-end>View</button>
+                  </ion-item>
+                </ion-list>
+
+                <ion-list>
+                  <ion-item>
+                    <ion-thumbnail item-start>
+                      <img src="assets/imgs/medal.png">
+                    </ion-thumbnail>
+                    <h2>Recolección de útiles escolare</h2>
+                    <p>Chinameca • 1988</p>
+                    <button ion-button clear item-end>View</button>
+                  </ion-item>
+                </ion-list>
+
+                <ion-list>
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="assets/imgs/user2.png">
+                      </ion-thumbnail>
+                      <h2>Donaciones de...</h2>
+                      <p>Cacaopera • 1988</p>
+                      <button ion-button clear item-end>View</button>
+                    </ion-item>
+                  </ion-list>
+
+
+
+                  <ion-list>
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="assets/imgs/computer.png">
+                      </ion-thumbnail>
+                      <h2>Campaña de promoción de...</h2>
+                      <p>Juayúa • 1988</p>
+                      <button ion-button clear item-end>View</button>
+                    </ion-item>
+                  </ion-list>
+
+                  <ion-list>
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="assets/imgs/medal.png">
+                      </ion-thumbnail>
+                      <h2>Proyecto el tunco</h2>
+                      <p>La Libertad • 1988</p>
+                      <button ion-button clear item-end>View</button>
+                    </ion-item>
+                  </ion-list>
+
+          </ion-item >
+          <ion-item *ngIf="showSubscripciones">
+
+              <ion-list>
+                  <ion-item>
+                    <ion-thumbnail item-start>
+                      <img src="assets/imgs/user2.png">
+                    </ion-thumbnail>
+                    <h2>My Neighbor Totoro</h2>
+                    <p>Hayao Miyazaki • 1988</p>
+                    <button ion-button clear item-end>View</button>
+                  </ion-item>
+                </ion-list>
+
+                <ion-list>
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="assets/imgs/user2.png">
+                      </ion-thumbnail>
+                      <h2>My Neighbor Totoro</h2>
+                      <p>Hayao Miyazaki • 1988</p>
+                      <button ion-button clear item-end>View</button>
+                    </ion-item>
+                  </ion-list>
+
+
+          </ion-item >
+          <ion-item *ngIf="showUnread" class="tutorial-page">
+              <ion-slides pager>
+                  <ion-slide *ngFor="let slide of slides">
+                    <ion-toolbar>
+                      <ion-buttons end>
+                        <button ion-button color="primary">Skip</button>
+                      </ion-buttons>
+                    </ion-toolbar>
+                    <img [src]="slide.image" class="slide-image"/>
+                    <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+                    <p [innerHTML]="slide.description"></p>
+                  </ion-slide>
+                  <ion-slide>
+                    <ion-toolbar>
+                    </ion-toolbar>
+                    <img src="assets/imgs/ica-slidebox-img-4.png" class="slide-image"/>
+                    <h2 class="slide-title">Ready to Play?</h2>
+                    <button ion-button large clear icon-end color="primary">
+                      Continue
+                      <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+                  </ion-slide>
+                </ion-slides>
+
+          </ion-item >
+      </ion-content>
+
+</ion-content>

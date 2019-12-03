@@ -1,0 +1,11 @@
+page-tab2 {
+	video {
+	    max-width: 100%;
+	    height: 70%;
+	  }
+}
+
+button.select-searchable-item > div.item-inner > div.input-wrapper > .label {
+  overflow:initial !important;
+  white-space:initial !important;
+}

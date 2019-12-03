@@ -1,0 +1,136 @@
+page-deep-donate {
+	.toolbar-md-customColor{
+		color: #000 !important;
+	}
+
+	[icon-left] ion-icon, [icon-start] ion-icon {
+	    line-height: normal !important;
+	 }
+
+	// .footer .footer-md, .footer .footer-ios{
+	// 	bottom: 0px !important;
+	// }
+
+	.footer{
+		bottom: 0px !important;
+	}
+
+	.toolbar-md-customColor .bar-button-clear-md, .toolbar-md-customColor .bar-button-default-md, .toolbar-md-customColor .bar-button-outline-md, .toolbar-md-customColor .toolbar-title-md{
+		color: #000 !important;
+	}
+
+	.toolbar-md-customColor{
+		color: #000 !important;
+	}
+
+	.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    	color: #000 !important;
+	    background-color: transparent;
+	}
+
+	.toolbar-ios-customColor .toolbar-title-ios, .toolbar-ios-customColor .bar-button-clear-ios, .toolbar-ios-customColor .bar-button-default-ios {
+	    color: #000000 !important;
+	  }
+
+
+	  #rounded {
+	        width: 100%;
+	        height: 100px;
+	        -moz-border-radius: 50px;
+	        -webkit-border-radius: 50px;
+	        border-radius: 10px;
+	        margin-bottom: 10px;  
+	    }
+
+	    #container {
+	        width: 300px; 
+	        margin-left:auto; 
+	        margin-right: auto; 
+	    }
+
+
+
+	.text-input-md {
+	    // margin: 13px 8px;
+	    // padding: 0;
+	    // width: calc(100% - 8px - 8px);
+	    border: 1px solid lightgrey;
+	    padding: 11px;
+	}
+
+	.item-md.item-input.input-has-focus.item-inner {
+		box-shadow: none;
+		border-bottom: none;
+	}
+
+
+	.item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {
+	    border-bottom: none !important;
+	    border-bottom-color: transparent !important;
+	    box-shadow: none;
+	}
+
+	// .input-has-focus .item-input-has-focus{
+	// 	box-shadow: none !important;
+	// 	border-bottom: none !important;	
+	// }
+
+	.list-md .item-input:last-child {
+	   box-shadow: none !important;
+	   border-bottom: none !important;	
+	}
+
+	.text-input-md {
+    	margin: 0px !important;
+    	width: 100% !important;
+    }
+
+    button.item-cover{
+	    border: 1px solid lightgrey;
+	    // width: 92%;
+	    // margin-left: 10px;
+	    // margin-right: 10px;
+    }
+
+    .tarjeta{
+    	width: 40%;
+    	float: right;
+    }
+
+    ion-select {
+    	max-width: 100% !important;	
+    	    width: 100% !important;
+    }
+
+    .noborder button{
+    	border: 0 !important;
+    }
+
+    .datetime button{
+    	width: 92%;
+    	margin-left: 10px;
+    }
+
+    .select button{
+    	width: 95%;
+    	margin-left: 10px;
+    }
+	
+	p {
+	 color: grey;
+	}
+
+
+	.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+	    color: #000000 !important;
+	  }
+
+	  .toolbar-background-md{
+	    background-color: #ffffff !important;
+	  }
+
+	  .toolbar-ios-customColor .toolbar-title-ios, .toolbar-ios-customColor .bar-button-clear-ios, .toolbar-ios-customColor .bar-button-default-ios, .toolbar-md-customColor .bar-button-clear-md, .toolbar-md-customColor .bar-button-default-md, .toolbar-md-customColor .bar-button-outline-md, .toolbar-md-customColor .toolbar-title-md{
+	    color: #000000 !important;
+	  }
+
+}

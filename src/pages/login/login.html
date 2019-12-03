@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar color="customColor">
+    <ion-title>Ingresar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="assets/imgs/LogoTipologia.png" class="logo">
+  </ion-card>
+
+   <!-- <ion-row> -->
+       <!-- <ion-col col-md-2> -->
+          <button block ion-button icon-left (click)="loginWithFB()">
+              <ion-icon name="logo-facebook"></ion-icon>Facebook
+          </button>
+       <!-- </ion-col> -->
+       <!-- <ion-col col-md-2> -->
+          <button block ion-button icon-left (click)="loginWithGoogle()" color="danger">
+              <ion-icon name="logo-googleplus"></ion-icon>Google
+            </button>
+       <!-- </ion-col> -->
+       <!-- <ion-col col-md-2>
+          <button ion-button icon-left (click)="doLoginSocialProvider('twitter')" color="twitter">
+              <ion-icon name="logo-twitter"></ion-icon>
+            Twitter
+          </button>
+       </ion-col> -->
+
+   <!-- </ion-row> -->
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <button ion-button full (click)="doLogin()">Ingresar</button>
+  <button clear block ion-button (click)="goToSignUp()">Registro</button>
+  <br/><br/>
+
+ 
+
+
+
+  <!--  -->
+</ion-content>

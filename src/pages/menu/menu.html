@@ -1,0 +1,69 @@
+<ion-menu [content]="content">
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content class="side-menu-gradient">
+    
+    <div class="spacer" style="width:100%;height:29px;" id="menu-spacer1"></div>
+
+    <div class="profile-image">
+      <ion-row>
+
+        <div *ngIf="login.getAuthData.image; else elseBlock">
+            <img src="{{ login.getAuthData.image }}" style="display:block;width:30%;height:80%;margin-left:auto;margin-right:auto;"/>
+        </div>
+
+        <ng-template #elseBlock>
+            <img src="https://pngimage.net/wp-content/uploads/2018/06/green-circle-icon-png-6.png" style="width: 65px; height: 65px; margin-left: 10px;" >
+        </ng-template>
+
+
+        <p style="text-align: center; margin-top: 30px;" *ngIf="login.getName">{{ login.getName }}</p>
+      </ion-row>
+
+    </div>
+
+    <div class="spacer" style="width:100%;height:29px;" id="menu-spacer3"></div>
+
+    <ion-list>
+
+        <!-- <hr> -->
+        
+        <button ion-item menuClose *ngFor="let p of pages; let i = index" (click)="openPage(p)" class="side-menu-item" id="number{{ i }}" detail-push no-lines>
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{ p.title }}
+        </button>
+
+
+        <!-- <button ion-item menuClose *ngIf="login.isAuthenticated == 'Logout'"  (click)="openCuenta()" class="side-menu-item" detail-push no-lines>
+          <ion-icon item-start name="shuffle"></ion-icon>
+           Cuenta
+        </button> -->
+   
+        <button ion-item menuClose (click)="openLoginPage()" class="side-menu-item" no-lines>
+          <ion-icon item-start name="exit"></ion-icon>
+           {{ login.isAuthenticated }}
+        </button>
+
+
+
+    </ion-list>
+  </ion-content>
+
+  <!-- <ion-footer-bar class="bar-stable">
+      <ion-item nav-clear menu-close href="#" style="left:0;right:0;margin:0; width: 100%;position: fixed;">Logout</ion-item>
+  </ion-footer-bar> -->
+
+  <ion-footer>
+    <button ion-item menuClose (click)="openWebpage()" >
+      Terminos y condiciones
+    </button>
+  </ion-footer>
+
+</ion-menu>
+
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

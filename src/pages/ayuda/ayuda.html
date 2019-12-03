@@ -1,0 +1,42 @@
+<!--
+  Generated template for the AyudaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- Segment in a header -->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Ayuda</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+
+  <ion-content class="tutorial-page">
+
+      <ion-slides pager (ionSlideDidChange)="slideChanged()" #slides>
+
+        <ion-slide *ngFor="let slide of slider">
+          <img [src]="slide.image" class="slide-image"/>
+          <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+          <p [innerHTML]="slide.description"></p>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-toolbar>
+          </ion-toolbar>
+          <img src="assets/imgs/ica-slidebox-img-4.png" class="slide-image"/>
+          <h2 class="slide-title">¿Nos acompañas en la aventura?</h2>
+
+          <button ion-button large clear icon-end color="primary" (click)="gotoPosts()">
+            <img src="assets/imgs/LogoTipologia.png" class="slide-image"/>
+            <ion-icon name="arrow-forward" ></ion-icon>
+          </button>
+
+        </ion-slide>
+      </ion-slides>
+    </ion-content>

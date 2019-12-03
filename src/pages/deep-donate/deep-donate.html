@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contribuir
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+ <ion-content padding>
+ <ion-list no-lines>  
+  
+   <ion-item>
+    <ion-label style="color: #999;">Tarjeta de crédito <img src="assets/imgs/cards4.png" class="tarjeta"></ion-label>
+   </ion-item>
+   <ion-item>
+     <ion-input type="number" [(ngModel)]="newSubscription.number"> float-right</ion-input>
+   </ion-item>
+
+
+
+   <ion-item>
+    <ion-label style="color: #999;">Nombre del titular</ion-label>
+   </ion-item>
+   <ion-item>
+     <ion-input type="text" [(ngModel)]="newSubscription.nombre"> float-right</ion-input>
+   </ion-item>
+
+    
+   
+   <ion-row>
+      <ion-col>
+        <ion-item>
+        <ion-label style="color: #999;">Fecha de vencimiento</ion-label>
+       </ion-item>
+       <ion-item>
+        <ion-datetime displayFormat="MM/YY" [(ngModel)]="newSubscription.exp" pickerFormat="MM YYYY" min="{{ current_year }}" max="{{ current_year + 100}}"></ion-datetime>
+      </ion-item>
+      </ion-col>
+
+      <ion-col>
+          <ion-item>
+            <ion-label style="color: #999;">CVC</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input type="tel" [(ngModel)]="newSubscription.cvc" maxlength="4" float-right></ion-input>
+          </ion-item>
+      </ion-col>
+
+   </ion-row>
+
+   
+
+
+  
+
+   <ion-item>
+    <ion-label style="color: #999;">Una sola donación</ion-label>
+    <ion-toggle class="noborder" [(ngModel)]="this.newSubscription.singlePayment"></ion-toggle>
+   </ion-item>
+
+   <ion-item *ngIf="this.newSubscription.singlePayment">
+    <ion-label style="color: #999;">Cantidad</ion-label>
+   </ion-item>
+
+   <ion-item *ngIf="this.newSubscription.singlePayment">
+    <ion-input type="number" [(ngModel)]="newSubscription.amount" float-right></ion-input>
+   </ion-item>
+
+    
+  <ion-item *ngIf="!this.newSubscription.singlePayment">  
+    <ion-label style="color: #999;">Subscripción</ion-label>
+  </ion-item>
+
+   <ion-item *ngIf="!this.newSubscription.singlePayment">
+    <ion-select [(ngModel)]="newSubscription.subscription" placeholder="Seleccione una opción">
+      <ion-option value="{{ plan.plan_id }}" *ngFor="let plan of planes">{{ plan.name }} ({{ plan.amount }})</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+
+ </ion-list>
+ <p style="text-align: justify;
+    font-size: 0.87em;">
+          Tu información de pago se procesa a través de Stripe.<br/>
+          Par completar las transacciones, almacenamos el tipo de tarjeta, los úlimos cuatro digitos, el vicencimiento y
+          el nombre de la tarjeta. Al hacer tu contribución, aceptas los términos de uso, la Politica de privaciada
+          y la politica de cookies de Fundasierra. Nuestras politicas explican cómo.
+  </p>
+</ion-content>
+
+<ion-footer>
+  <button ion-button icon-left block color="verde" (click)="placeDonation()"><ion-icon name="heart"></ion-icon> Hacer contribución</button>
+</ion-footer>

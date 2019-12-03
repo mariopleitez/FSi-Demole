@@ -1,0 +1,45 @@
+.logo{
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+}
+
+scroll-content{
+  overflow-y: hidden;
+}
+
+ion-card{
+  display: inline;
+}
+
+page-login {
+
+  /* ion-content {
+    background-image: url('../assets/imgs/FSI-03a.png');
+  } */
+
+  [icon-left] ion-icon, [icon-start] ion-icon {
+      line-height: normal !important;
+   }
+  
+  .item-md {
+    background: transparent;
+  }
+
+  .item-ios {
+    background: transparent;
+  }
+
+  .back-button bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button{
+    color: #000000 !important;
+  }
+
+  .toolbar-background-md{
+    background-color: #ffffff !important;
+  }
+
+  .toolbar-ios-customColor .toolbar-title-ios, .toolbar-ios-customColor .bar-button-clear-ios, .toolbar-ios-customColor .bar-button-default-ios, .toolbar-md-customColor .bar-button-clear-md, .toolbar-md-customColor .bar-button-default-md, .toolbar-md-customColor .bar-button-outline-md, .toolbar-md-customColor .toolbar-title-md{
+    color: #000000 !important;
+  }
+
+}

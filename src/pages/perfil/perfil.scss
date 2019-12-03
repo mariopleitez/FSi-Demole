@@ -1,0 +1,29 @@
+page-perfil {
+	.bold{
+		font-weight: bold !important;
+	}
+
+	.mycard{
+	 padding-top: 1px;
+	  padding-bottom: 1px;
+	  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important; 
+	}
+	  .mycard .item {
+	    border-left: 0;
+	    border-right: 0; 
+	 }
+	  .mycard .item:first-child {
+	    border-top: 0; }
+	  .mycard .item:last-child {
+	    border-bottom: 0; }
+
+	.toolbar-md-customColor .bar-button-clear-md, .toolbar-md-customColor .bar-button-default-md, .toolbar-md-customColor .bar-button-outline-md, .toolbar-md-customColor .toolbar-title-md {
+	   color: #000000 !important;
+	}
+
+	.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    	color: #000 !important;
+	    background-color: transparent;
+	}
+
+}
